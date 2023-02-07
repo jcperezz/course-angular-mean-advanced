@@ -110,3 +110,16 @@ const routes: Routes = [
   },
   ...
 ```
+
+### Adding custom styles by page
+1. Create the css file in the same path of the component with the pattern `<component>.component.css`
+2. Modify the ts file component with the following:
+```typescript
+  ...
+  @Component({
+    ...
+    styleUrls: [ './<component>.component.css' ]
+  })
+  ...
+```
+
