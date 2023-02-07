@@ -22,3 +22,67 @@ For see the help about the command you can use
 `ng g c --help`
 
 ### 3. Add the HTML template
+
+### 4. Add the rounting module for main routes
+
+1. Create the `app-routing-module` with `ng g m appRouting --flat`.
+
+2. Open the app routing module and modify with the following:
+
+```typescript
+import { NgModule } from '@angular/core';
+/**
+ * 1.1 Delete de CommonModule
+ * 1.2 Import the RouterModule and Routes
+ */
+import { RouterModule, Routes } from '@angular/router';
+
+@NgModule({
+  declarations: [],
+  imports: [], // 1.1. Delete de CommonModule
+  exports: [RouterModule] // 1.3. Export the RouterModule to expose it
+})
+export class AppRouting2Module { }
+
+```
+
+3. Declare the route objects array const
+
+```typescript
+const routes: Routes = [
+  // The 'normal' path for every component
+  {path: 'dashboard', component: DashboardComponent },
+  // The default path
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  // No found paths
+  {path: '**', component: NopagefoundComponent },
+];
+```
+
+4. Import the Router module with the route objects array
+
+```typescript
+    @NgModule({
+    ...
+    imports: [
+        // 4. Import the Router module with the route objects array
+        RouterModule.forRoot( routes )
+    ],
+    ...
+    })
+```
+
+5. Add the app-routing module in the **app.module.ts**
+
+```typescript
+@NgModule({
+  ...
+  imports: [
+    ...
+    AppRoutingModule,
+  ],
+  ...
+})
+```
+
+6. Add the `<router-outlet></router-outlet>` in the html. e.g. the **app.component.html**
