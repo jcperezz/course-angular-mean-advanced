@@ -12,6 +12,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     Graficas1Component,
     DashboardComponent,
     RegisterComponent,
-    NopagefoundComponent
+    NopagefoundComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
