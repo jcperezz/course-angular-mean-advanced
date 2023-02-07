@@ -1,27 +1,24 @@
 # Adminpro
 
+This is a test project for Advanced Angular Course.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
 
-## Development server
+## Quick guide
+For run this project you should the following steps:
+1. Clone this repository.
+2. Run `ng install` for install Node modules
+3. Run `ng serve -o` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Course steps
 
-## Code scaffolding
+### 1. Create an Angular Project
+Run `ng new <name>` where `<name>` is the name of project.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 2. Create your first component
+For create a component you should run the following sentence:
+`ng g c <name> -s --skip-tests`
+Where `<name>` is the name of the component.
+For see the help about the command you can use 
+`ng g c --help`
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 3. Add the HTML template
