@@ -123,3 +123,36 @@ const routes: Routes = [
   ...
 ```
 
+### Adding a module for group components
+1. Run `ng g m <module name> --flat` for create the module
+2. Add the components in the `declarations` and the `exports` properties:
+
+```typescript
+@NgModule({
+  ...
+  declarations: [
+    MyComponent,
+    ...
+  ],
+  exports: [
+    MyComponent,
+    ...
+  ],
+  ...
+})
+```
+
+3. Import the new module in the parent module, e.g. the **app.module.ts**:
+
+```typescript
+@NgModule({
+  ...
+  imports: [
+    ...
+    MyModule,
+    ...
+  ],
+  ...
+})
+
+```

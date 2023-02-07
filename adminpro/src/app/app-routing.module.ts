@@ -7,10 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { Graficas1Component } from './pages/graficas1/graficas1.component';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PagesComponent } from './pages/pages.component';
 import { ProgressComponent } from './pages/progress/progress.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 // 3. Declare the route objects array
 const routes: Routes = [
