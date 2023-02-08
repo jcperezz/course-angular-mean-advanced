@@ -202,5 +202,7 @@ export class PagesRoutingModule { }
   ...
 ```
 
-
+## @Inputs and @Outputs
+- **@Input**: when recibe info from the parent
+- **@Output**: where emit info to the parent
 
