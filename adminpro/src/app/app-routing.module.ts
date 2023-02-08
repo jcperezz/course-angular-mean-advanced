@@ -16,6 +16,8 @@ import { AuthRoutingModule } from './auth/auth.routing';
 
 // 3. Declare the route objects array
 const routes: Routes = [
+  // The default path
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // No found paths
   { path: '**', component: NopagefoundComponent },
 

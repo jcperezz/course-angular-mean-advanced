@@ -10,14 +10,12 @@ import { ProgressComponent } from './progress/progress.component';
 // 3. Declare the route objects array
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: PagesComponent, 
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'progress', component: ProgressComponent },
       { path: 'graficas1', component: Graficas1Component },
-      // The default path
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ]
   },
 ];
