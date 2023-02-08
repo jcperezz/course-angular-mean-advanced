@@ -12,12 +12,10 @@ import { PagesComponent } from './pages/pages.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PagesRoutingModule } from './pages/pages.routing';
+import { AuthRoutingModule } from './auth/auth.routing';
 
 // 3. Declare the route objects array
 const routes: Routes = [
-  // The normal way for asociate a path with a component
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   // No found paths
   { path: '**', component: NopagefoundComponent },
 
@@ -36,6 +34,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     // Add the routes for child
     PagesRoutingModule,
+    AuthRoutingModule,
   ],
   exports: [RouterModule] // 2. Exports the router module
 })
