@@ -26,7 +26,7 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-increment 
+                <app-increment [btnClass]="'btn-primary'"
                     (onChangeValue)="progreso1 = $event"  
                     [progressPercent]="progreso1" >
                 </app-increment>
@@ -37,7 +37,7 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-increment 
+                <app-increment [btnClass]="'btn-info'"
                     (onChangeValue)="changeValue( $event )"  
                     [progressPercent]="progreso2" >
                 </app-increment>
