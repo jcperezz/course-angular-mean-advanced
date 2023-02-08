@@ -8,6 +8,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { FormsModule } from "@angular/forms";
 import { ProgressComponent } from './progress/progress.component';
 import { ComponentsModule } from '../components/components.module';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -15,10 +16,12 @@ import { ComponentsModule } from '../components/components.module';
     Graficas1Component,
     DashboardComponent,
     ProgressComponent,
+    AccountSettingsComponent,
   ],
   exports: [
     Graficas1Component,
     DashboardComponent,
+    AccountSettingsComponent,
   ],
   imports: [
     CommonModule,
