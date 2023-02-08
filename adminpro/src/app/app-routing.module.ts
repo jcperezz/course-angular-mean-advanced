@@ -11,26 +11,13 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PagesComponent } from './pages/pages.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { PagesRoutingModule } from './pages/pages.routing';
 
 // 3. Declare the route objects array
 const routes: Routes = [
   // The normal way for asociate a path with a component
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-
-  // Routing with children
-  {
-    path: '',
-    // Parent component should has a router-outlet label
-    component: PagesComponent, 
-    children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'graficas1', component: Graficas1Component },
-      // The default path
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    ]
-  },
   // No found paths
   { path: '**', component: NopagefoundComponent },
 
@@ -46,7 +33,9 @@ const routes: Routes = [
      * 6. Add the <router-outlet></router-outlet> on the app.component.html
      * 
      */
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    // Add the routes for child
+    PagesRoutingModule,
   ],
   exports: [RouterModule] // 2. Exports the router module
 })

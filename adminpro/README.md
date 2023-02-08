@@ -89,6 +89,7 @@ const routes: Routes = [
 
 
 ### 5. Add the rounting for children routes (simple way)
+
 1. Run `ng g c pages/pages --flat -s --skip-tests` for create a new component for group the children (the new component is the parent)
 2. Move the html content from **app.component.html** to the **pages.component.html**
 3. Add the `<router-outlet></router-outlet>` label in the **app.component.html** file.
@@ -156,3 +157,50 @@ const routes: Routes = [
 })
 
 ```
+
+### Add the rounting forChild
+
+1. Create a file with the name **name.routing.ts**
+2. Add the following:
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+// 3. Declare the route objects array
+const routes: Routes = [
+  {
+    path: '',
+    component: PagesComponent, // The parent component 
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'progress', component: ProgressComponent },
+      { path: 'graficas1', component: Graficas1Component },
+      // The default path
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    ]
+  },
+];
+
+@NgModule({
+  declarations: [],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class PagesRoutingModule { }
+
+```
+
+3. Customize the file
+
+4. Add the new rounting module to imports at **app-routing.module.ts** file:
+```typescript
+  ...
+  imports: [
+    ...
+    PagesRoutingModule,
+  ],
+  ...
+```
+
+
+
