@@ -7,6 +7,8 @@
     <input type="number" 
         class="form-control" 
         [(ngModel)]="progressPercent"
+        (ngModelChange)="onChangeInput($event)"
+        [ngClass]="{'is-invalid': progressPercent > 100 || progressPercent < 0}"
         min="0"
         max="100"
         placeholder="Progreso" />
