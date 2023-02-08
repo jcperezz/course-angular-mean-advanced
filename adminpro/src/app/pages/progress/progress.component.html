@@ -2,10 +2,18 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Striped Progress</h4>
+                <h4 class="card-title">Striped Progress 1</h4>
                 <div class="progress-bar bg-primary progress-bar-striped active" 
                     style="height:10px;"
-                    [style.width]="getPorcentaje" 
+                    [style.width]="getProgreso1"
+                    role="progressbar">
+                </div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Striped Progress 2</h4>
+                <div class="progress-bar bg-red progress-bar-striped active" 
+                    style="height:10px;"
+                    [style.width]="getProgreso2"
                     role="progressbar">
                 </div>
             </div>
@@ -18,25 +26,10 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button" (click)="changeValue(-5)">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                    </span>
-                    <input type="number" 
-                        class="form-control" 
-                        [(ngModel)]="progressPercent"
-                        min="0"
-                        max="100"
-                        placeholder="Progreso" />
-                        
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button" (click)="changeValue(5)">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                    </span>
-                </div>
+                <app-increment 
+                    (onChangeValue)="progreso1 = $event"  
+                    [progressPercent]="progreso1" >
+                </app-increment>
             </div>
         </div>
     </div>
@@ -44,6 +37,10 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
+                <app-increment 
+                    (onChangeValue)="changeValue( $event )"  
+                    [progressPercent]="progreso2" >
+                </app-increment>
             </div>
         </div>
     </div>

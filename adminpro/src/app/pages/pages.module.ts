@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { FormsModule } from "@angular/forms";
 import { ProgressComponent } from './progress/progress.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ProgressComponent } from './progress/progress.component';
     CommonModule,
     FormsModule,
     RouterModule,
+    ComponentsModule,
   ]
 })
 export class PagesModule { }
