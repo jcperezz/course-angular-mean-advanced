@@ -202,7 +202,13 @@ export class PagesRoutingModule { }
   ...
 ```
 
-## @Inputs and @Outputs
+### @Inputs and @Outputs
 - **@Input**: when recibe info from the parent
 - **@Output**: where emit info to the parent
+
+### Calling JS from angular
+1. Put the JS function in a global file
+2. Create the JS function `const functionName = () => { }`
+3. In the ts file add the `declare function functionName() : void;` in the imports section
+4. Call the JS function like a typescript function 
 
