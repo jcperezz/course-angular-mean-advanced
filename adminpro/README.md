@@ -210,5 +210,18 @@ export class PagesRoutingModule { }
 1. Put the JS function in a global file
 2. Create the JS function `const functionName = () => { }`
 3. In the ts file add the `declare function functionName() : void;` in the imports section
-4. Call the JS function like a typescript function 
+4. Call the JS function like a typescript function
 
+### Observables y promesas (conceptos)
+- Promesas
+    - Traban con un único flujo de datos.
+    - Se usan con única data asíncrona de respuesta
+    - No es fácil de cancelar
+    - Simples de implementar
+- Observables
+    - Trabajan con un flujo continuo de datos
+    - Al fallar se puede ejectuar comandos y reintentar continuar con el observer
+    - Se pueden encadenar operadores adcionales como el map, forEach, reduce, filter y más
+    - Existen operadores potentes como el retry() o el replay()
+    - Pueden ser creados desde otras fuentes, como eventos
+    - Son funciones a las cuales podemos suscribirnos en múltiples lugares

@@ -9,6 +9,7 @@ import { FormsModule } from "@angular/forms";
 import { ProgressComponent } from './progress/progress.component';
 import { ComponentsModule } from '../components/components.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     DashboardComponent,
     ProgressComponent,
     AccountSettingsComponent,
+    PromisesComponent,
   ],
   exports: [
     Graficas1Component,
