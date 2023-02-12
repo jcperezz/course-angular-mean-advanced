@@ -8,6 +8,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 // 3. Declare the route objects array
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'progress', component: ProgressComponent },
       { path: 'graficas1', component: Graficas1Component },
       { path: 'promises', component: PromisesComponent },
+      { path: 'rxjs', component: RxjsComponent },
       { path: 'accountSettings', component: AccountSettingsComponent },
     ]
   },
