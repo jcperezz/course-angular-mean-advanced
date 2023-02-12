@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivationEnd, Data, Router } from '@angular/router';
 
-import { Observable, interval, Subscription } from 'rxjs';
-import { retry, take, map, filter } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+import { PagesComponent } from 'src/app/pages/pages.component';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -17,9 +18,10 @@ export class BreadcrumbsComponent implements OnDestroy {
 
   constructor(private router: Router) {
     this.titulosSubs$ = this.getTitle()
-    .subscribe( ({titulo}) => {
-      this.titulo = titulo;
-      document.title = `AdminPro - ${titulo}`;
+    .subscribe( ({title}) => {
+      //console.log(data)
+      this.titulo = title;
+      document.title = `AdminPro - ${title}`;
     });
   }
 
@@ -31,8 +33,8 @@ export class BreadcrumbsComponent implements OnDestroy {
     return this.router.events
       .pipe(
         filter((event: any) => (event instanceof ActivationEnd)),
-        filter((event: ActivationEnd) => event.snapshot.firstChild === null),
-        map((event: ActivationEnd) => event.snapshot.data)
+        map((event: ActivationEnd) => event.snapshot.data),
+        filter( (data : Data) => data['title']),
       );
   }
 
