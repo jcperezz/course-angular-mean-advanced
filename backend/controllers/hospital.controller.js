@@ -3,13 +3,22 @@ const Hospital = require('../models/hospital.model');
 const { validationResult } = require('express-validator');
 
 const findAll = async (req = request, res = response) => {
-    const hospitals = await Hospital.find({})
-        .populate('user', 'name img');
+
+    const fromRow = Number(req.query.from) || 0; 
+
+    const [ hospitals, total ] = await Promise.all([
+        Hospital.find({})
+        .populate('user', 'name img')
+        .skip(fromRow)
+        .limit(5),
+        Hospital.count()
+    ]);
 
     res.json({
         ok: true,
         hospitals,
-        uid: req.uid
+        uid: req.uid,
+        total
     });
 }
 
