@@ -62,22 +62,22 @@ const updateUser = async (req, res = response) => {
 
         const findUser = await User.findById(uid);
 
-        if( !findUser ) {
+        if (!findUser) {
             return res.status(404).json({
                 ok: false,
                 msg: 'No existe el usuario'
             });
         }
 
-        const {password, google, ...fields} = req.body;
+        const { password, google, ...fields } = req.body;
 
-        const updateUser = await User.findByIdAndUpdate(uid, fields, { new: true});
+        const updateUser = await User.findByIdAndUpdate(uid, fields, { new: true });
 
         res.json({
             ok: true,
             usuario: updateUser
         })
-        
+
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -88,8 +88,43 @@ const updateUser = async (req, res = response) => {
 
 }
 
+const deleteUser = async (req, res = response) => {
+
+
+    const uid = req.params.id;
+
+    try {
+
+
+        const findUser = await User.findById(uid);
+
+        if (!findUser) {
+            return res.status(404).json({
+                ok: false,
+                msg: 'No existe el usuario'
+            });
+        }
+
+        await User.findByIdAndDelete(uid);
+
+        return res.json({
+            ok: true,
+            msg: 'Borrado'
+        });
+
+    } catch (error) {
+        console.log(error);
+        return res.json({
+            ok: false,
+            msg: 'Error inesperado'
+        });
+    }
+
+}
+
 module.exports = {
     getUsers,
     createUser,
     updateUser,
+    deleteUser,
 };
