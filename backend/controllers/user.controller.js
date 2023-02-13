@@ -34,7 +34,7 @@ const createUser = async (req, res = response) => {
         const newUser = new User(req.body);
 
         const salt = bcrypt.genSaltSync();
-        newUser.password = bcrypt.hashSync( password, salt );
+        newUser.password = bcrypt.hashSync(password, salt);
 
         // 3. Save on the BD
         await newUser.save();
@@ -52,12 +52,46 @@ const createUser = async (req, res = response) => {
             msg: 'Error no esperado'
         });
     }
+}
 
+const updateUser = async (req, res = response) => {
 
+    const uid = req.params.id;
+
+    try {
+
+        const findUser = await User.findById(uid);
+
+        if( !findUser ) {
+            return res.status(404).json({
+                ok: false,
+                msg: 'No existe el usuario'
+            });
+        }
+
+        const fields = req.body;
+        delete fields.password;
+        delete fields.google;
+
+        const updateUser = await User.findByIdAndUpdate(uid, fields, { new: true});
+
+        res.json({
+            ok: true,
+            usuario: updateUser
+        })
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Error no esperado'
+        });
+    }
 
 }
 
 module.exports = {
     getUsers,
     createUser,
+    updateUser,
 };
