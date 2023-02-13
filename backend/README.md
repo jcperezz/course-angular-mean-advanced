@@ -79,3 +79,6 @@ router.post('/', [
     ],
     createUser);
 ```
+
+### Encrypt
+1. Run `npm i bcryptjs`
