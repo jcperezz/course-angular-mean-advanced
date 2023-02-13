@@ -6,8 +6,11 @@ const { dbConnection } = require('./database/config');
 // Start the express server
 const app = express();
 
-// Configure cros
+// Configure CORS
 app.use(cors());
+
+// Configure the JSON parser and reader
+app.use( express.json() );
 
 // Enable database conection
 dbConnection();
