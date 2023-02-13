@@ -10,7 +10,8 @@ const getUsers = async (req, res) => {
 
     res.json({
         ok: true,
-        users
+        users,
+        uid: req.uid
     });
 
 };
