@@ -3,13 +3,13 @@ const Doctor = require('../models/doctor.model');
 const { validationResult } = require('express-validator');
 
 const findAll = async (req = request, res = response) => {
-    const hospitals = await Doctor.find({})
+    const doctors = await Doctor.find({})
         .populate('hospital', 'name img')
         .populate('user', 'name img');
 
     res.json({
         ok: true,
-        hospitals,
+        doctors,
         uid: req.uid
     });
 }
