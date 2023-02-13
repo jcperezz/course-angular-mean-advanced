@@ -30,3 +30,52 @@
 1. Install `npm i cors`
 2. Add the require `const cors = require('cors')`
 3. Add the line `app.use(cors())`
+
+### Add validation component
+1. Run `npm i express-validator`
+2. Import the component `const { check } = require('express-validator');`
+3. Add the validations on the router
+```javascript
+router.post('/', [
+        check('name', 'Campo obligatorio').not().isEmpty(),
+        check('password', 'Password obligatorio').not().isEmpty(),
+        check('email', 'Email es obligatorio').not().isEmpty(),
+        check('email', 'Email no valido').isEmail(),
+    ],
+    createUser);
+```
+4. Create un file **middleware/fields-validation.middleware.js** and add the following
+```javascript
+const { response } = require('express');
+const { validationResult } = require('express-validator');
+
+const fieldsValidate = (req, res, next) => {
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            ok: false,
+            errors: errors.mapped()
+        });
+    }
+
+    next();
+}
+
+module.exports = {
+    fieldsValidate
+}
+```
+
+5. Add the validation middleware at the end of validations
+```javascript
+router.post('/', [
+        check('name', 'Campo obligatorio').not().isEmpty(),
+        check('password', 'Password obligatorio').not().isEmpty(),
+        check('email', 'Email es obligatorio').not().isEmpty(),
+        check('email', 'Email no valido').isEmail(),
+        fieldsValidate
+    ],
+    createUser);
+```
