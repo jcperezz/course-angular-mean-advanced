@@ -2,6 +2,7 @@ const { response } = require('express');
 const User = require('../models/user.model');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const {generateJwt} = require('../helpers/jwt.helper');
 
 const getUsers = async (req, res) => {
 
@@ -38,10 +39,14 @@ const createUser = async (req, res = response) => {
 
         // 3. Save on the BD
         await newUser.save();
+
+        const token = await generateJwt( newUser.id );
+
         // 4. Build the response
         res.json({
             ok: true,
             user: newUser,
+            token
         });
 
     } catch (error) {

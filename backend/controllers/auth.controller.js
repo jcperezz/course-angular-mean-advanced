@@ -2,6 +2,7 @@ const { response } = require('express');
 const User = require('../models/user.model');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const {generateJwt} = require('../helpers/jwt.helper');
 
 
 const login = async (req, res = response) => {
@@ -28,9 +29,11 @@ const login = async (req, res = response) => {
             });
         }
 
+        const token = await generateJwt( foundUser.id );
+
         return res.json({
             ok: true,
-            msg: 'Email y password validos',
+            token,
         });
 
 

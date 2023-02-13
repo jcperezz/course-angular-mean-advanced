@@ -82,3 +82,6 @@ router.post('/', [
 
 ### Encrypt
 1. Run `npm i bcryptjs`
+
+### JWT
+1. Run `npm i jsonwebtoken`
